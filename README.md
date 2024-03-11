@@ -10,11 +10,16 @@ Run the docker compose
 ```sh
 docker-compose up --build
 ```
+if everthing went fine you should see this string in the logs:
+```
+spring-boot-app    | 2024-03-11T08:03:04.466Z  INFO 1 --- ['}-mongo1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=mongo1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=32304667}
+```
 
 Once the containers are running import the necessary data using the shell script `import_data.sh`
 ```sh
 sh import_data.sh
 ```
+
 Now you can see the web app at: http://localhost:4200/
 
 Use `purge_data.sh` to delete all the data from the database
