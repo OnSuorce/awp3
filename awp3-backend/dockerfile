@@ -1,0 +1,19 @@
+# Fase di build: usa un'immagine Java 17 per la costruzione
+FROM openjdk:17-slim as build
+
+WORKDIR /app
+
+COPY . .
+
+RUN ./mvnw clean package 
+
+
+FROM openjdk:17-slim
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]

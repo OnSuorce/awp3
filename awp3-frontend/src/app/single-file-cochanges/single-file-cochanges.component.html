@@ -1,0 +1,12 @@
+<app-autocomplete-component (optionSelected)="onF1Selected($event)" id="f1"></app-autocomplete-component>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Data</mat-label>
+  <input matInput [matDatepicker]="picker" [value]="defaultDate">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br>
+<button mat-raised-button color="primary" (click)="getCochangesOfFile()">Go</button>
+<br>
+<canvas id="radarChart"></canvas>

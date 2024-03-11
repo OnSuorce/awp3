@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongo1:
+    image: mongo
+    container_name: mongo1
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - app-network
+
+  spring-boot-app:
+    container_name: spring-boot-app
+    build:
+      context: ./awp3-backend
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo1
+    networks:
+      - app-network
+
+  angular-app:
+    container_name: angular-app
+    build:
+      context: ./awp3-frontend
+      dockerfile: dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - spring-boot-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb-data:

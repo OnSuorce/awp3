@@ -1,0 +1,20 @@
+/* app.component.css */
+.center-content {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-toolbar {
+  width: 100%;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: 250px;
+}
