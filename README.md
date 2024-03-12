@@ -26,7 +26,7 @@ Use `purge_data.sh` to delete all the data from the database
 
 # Pages
 - Cochanges: it shows which pairs tend to change more often at the given day
-- File relationship: Given a file and a date it returns how coupled is the given file to others file, only results grater than 0.0 are showed
+- File relationship: Given a file and a date it returns how coupled is the given file to others file, only results greater than 0.0 are showed
 - Pair cochanges: Given 2 files it displays how many changes have been made and how the co-change probability has changed over time
 
 # Notes on Results/Charts
